@@ -1,0 +1,3 @@
+class SystemEvents {
+    message!: string;
+}

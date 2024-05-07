@@ -1,0 +1,13 @@
+::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+
+.flexlayout__splitter .flexlayout__splitter_vert{
+    cursor: pointer !important;
+}
+
+.flexlayout__splitter .flexlayout__splitter_horz{
+    cursor: pointer !important;
+}

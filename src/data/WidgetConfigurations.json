@@ -1,0 +1,317 @@
+{
+  "account-panel": {
+    "id": "account-panel",
+    "name": "Logins",
+    "visibleCols": [
+      "login",
+      "name",
+      "broker",
+      "subbroker",
+      "extragroup",
+      "losslimit",
+      "creditlimit",
+      "comment",
+      "qtylimitmultiplayer",
+      "ignoretrader",
+      "colour",
+      "company",
+      "lpratio"
+    ],
+    "functionCols": [],
+    "groupBy": [],
+    "splitBy": [],
+    "filterBy": [],
+    "dataSourceId": "account-panel",
+    "componentType": "grid",
+    "pivot": false,
+    "filterColor": {
+      "color": "gray",
+      "type": "unlink"
+    },
+    "icon": "account_box",
+    "icon1" : "swap_vert"
+  },
+  "broker-panel": {
+    "id": "broker-panel",
+    "name": "Broker Panel",
+    "visibleCols": ["broker", "maxbrokerage"],
+    "functionCols": [],
+    "groupBy": [],
+    "splitBy": [],
+    "filterBy": [],
+    "dataSourceId": "broker-panel",
+    "componentType": "grid",
+    "pivot": false,
+    "filterColor": {
+      "color": "gray",
+      "type": "unlink"
+    },
+    "icon": "account_balance",
+    "icon1" : "swap_vert"
+  },
+  "subbroker-panel": {
+    "id": "subbroker-panel",
+    "name": "SubBroker Panel",
+    "visibleCols": ["subbroker", "maxbrokerage"],
+    "functionCols": [],
+    "groupBy": [],
+    "splitBy": [],
+    "filterBy": [],
+    "dataSourceId": "subbroker-panel",
+    "componentType": "grid",
+    "pivot": false,
+    "filterColor": {
+      "color": "gray",
+      "type": "unlink"
+    },
+    "icon": "device_hub",
+    "icon1" : "swap_vert"
+  },
+  "dealing-panel": {
+    "id": "dealing-panel",
+    "name": "Dealings",
+    "visibleCols": [
+      "id",
+      "time",
+      "login",
+      "symbol",
+      "volume",
+      "buysell",
+      "price",
+      "reason",
+      "dealingtype"
+    ],
+    "functionCols": [],
+    "groupBy": [],
+    "splitBy": [],
+    "filterBy": [],
+    "dataSourceId": "dealing-panel",
+    "componentType": "grid",
+    "pivot": false,
+    "filterColor": {
+      "color": "gray",
+      "type": "unlink"
+    },
+    "icon": "sync_alt",
+    "icon1" : "swap_vert"
+  },
+  "dealing-panel-interval": {
+    "id": "dealing-panel-interval",
+    "name": "Dealings Interval",
+    "visibleCols": [
+      "id",
+      "time",
+      "login",
+      "symbol",
+      "volume",
+      "buysell",
+      "price",
+      "reason",
+      "dealingtype"
+    ],
+    "functionCols": [],
+    "groupBy": [],
+    "splitBy": [],
+    "filterBy": [],
+    "dataSourceId": "dealing-panel-interval",
+    "componentType": "dealing",
+    "pivot": false,
+    "filterColor": {
+      "color": "gray",
+      "type": "unlink"
+    },
+    "icon": "sync_alt",
+    "icon1" : "swap_vert"
+  },
+
+  "login-device-panel": {
+    "id": "login-device-panel",
+    "name": "Login device panel",
+    "visibleCols": [
+      "time",
+      "ip",
+      "login",
+      "deviceid"
+    ],
+    "functionCols": [],
+    "groupBy": [],
+    "splitBy": [],
+    "filterBy": [],
+    "dataSourceId": "login-device-panel",
+    "componentType": "dealing",
+    "pivot": false,
+    "filterColor": {
+      "color": "gray",
+      "type": "unlink"
+    },
+    "icon": "sync_alt",
+    "icon1" : "swap_vert"
+  },
+  
+  "order-panel": {
+    "id": "order-panel",
+    "name": "Orders",
+    "visibleCols": [
+      "login",
+      "time",
+      "deal",
+      "order",
+      "symbol",
+      "type",
+      "volume",
+      "price",
+      "comment",
+      "status",
+      "select",
+      "statustype",
+      "subtype",
+      "contraorder",
+      "tradeexecutetime",
+      "ourcomment",
+      "orderstate",
+      "reason",
+      "dealingtype"
+    ],
+    "functionCols": [],
+    "groupBy": [],
+    "splitBy": [],
+    "filterBy": [],
+    "dataSourceId": "order-panel",
+    "componentType": "grid",
+    "pivot": false,
+    "filterColor": {
+      "color": "gray",
+      "type": "unlink"
+    },
+    "icon": "support_agent",
+    "icon1" : "swap_vert"
+  },
+  "watch-list-panel": {
+    "id": "watch-list-panel",
+    "name": "Watch List",
+    "visibleCols": [
+      "symbol",
+      "bid",
+      "ask",
+      "last",
+      "open",
+      "high",
+      "low",
+      "close",
+      "ticktime",
+      "change",
+      "delete"
+    ],
+    "functionCols": [],
+    "groupBy": [],
+    "splitBy": [],
+    "filterBy": [],
+    "dataSourceId": "tick-data",
+    "componentType": "watchlist",
+    "pivot": false,
+    "filterColor": {
+      "color": "gray",
+      "type": "unlink"
+    },
+    "icon": "currency_exchange",
+    "icon1" : "swap_vert"
+  },
+  "event-management-system-panel": {
+    "id": "event-management-system-panel",
+    "name": "Event Management System",
+    "visibleCols": [
+      "login",
+      "symbol",
+      "clientbalance",
+      "clientfloatingpl",
+      "clientplnet",
+      "companyplnet"
+    ],
+    "functionCols": [],
+    "groupBy": [],
+    "splitBy": [],
+    "filterBy": [],
+    "dataSourceId": "event-management",
+    "componentType": "event-management",
+    "pivot":true,
+    "filterColor":{
+      "color":"gray",
+      "type":"unlink"
+    },
+    "icon":"fingerprint",
+    "icon1" :"swap_vert"
+  },
+  "alert-notification-panel": {
+    "id": "alert-notification-panel",
+    "name": "Alert Notification",
+    "visibleCols": [
+      "login",
+      "symbol",
+      "clientbalance",
+      "clientfloatingpl",
+      "clientplnet",
+      "companyplnet"
+    ],
+    "functionCols": [],
+    "groupBy": [],
+    "splitBy": [],
+    "filterBy": [],
+    "dataSourceId": "alert-notification",
+    "componentType": "alert-notification",
+    "pivot":true,
+    "filterColor":{
+      "color":"gray",
+      "type":"unlink"
+    },
+    "icon":"fingerprint",
+    "icon1" :"swap_vert"
+  },
+  "webpage":{
+    "id": "webpage",
+    "name": "Web Page",
+    "visibleCols": [
+      "symbol",
+      "bid",
+      "ask",
+      "last",
+      "open",
+      "high",
+      "low",
+      "close",
+      "ticktime",
+      "change",
+      "delete"
+    ],
+    "functionCols": [],
+    "groupBy": [],
+    "splitBy": [],
+    "filterBy": [],
+    "dataSourceId": "tick-data",
+    "componentType": "webpage",
+    "pivot": false,
+    "filterColor": {
+      "color": "gray",
+      "type": "unlink"
+    },
+    "icon": "currency_exchange",
+    "icon1": "currency_exchange"
+  },
+  "profit-loss-report": {
+    "id": "profit-loss-report",
+    "name": "Profit and loss widget",
+    "visibleCols": [],
+    "functionCols": [],
+    "groupBy": [],
+    "splitBy": [],
+    "filterBy": [],
+    "dataSourceId": "tick-data",
+    "componentType": "profit-loss-report",
+    "pivot": false,
+    "filterColor": {
+      "color": "gray",
+      "type": "unlink"
+    },
+    "icon": "currency_exchange",
+    "icon1": "currency_exchange"
+  }
+}

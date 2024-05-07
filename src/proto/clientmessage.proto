@@ -1,0 +1,27 @@
+syntax = "proto3";
+package Oreka;
+
+import "loginrequest.proto";
+import "loginresponse.proto";
+import "LoginByToken.proto";
+import "DealingDataInterval.proto";
+import "FetchDealingDataInterval.proto";
+import "FetchLoginDevice.proto";
+import "LoginDeviceLog.proto";
+import "SubscribeTicker.proto";
+import "TickData.proto";
+
+message ClientMessage 
+{
+    string 										type = 1;
+    optional LoginRequest   					loginrequest = 2;
+    optional LoginResponse  					loginresponse = 3;;
+	optional FetchDealingDataInterval       	fetchDealingdatainterval=7;
+	optional LoginByToken						loginbytoken=10;     	
+	optional DealingDataInterval            	dealingdatainterval=20; 
+	optional FetchLoginDevice					fetchlogindevice=87;
+	optional LoginDeviceLog						logindevicelog=88;
+	optional SubscribeTicker					subscribeticker=46;
+	optional TickData							tickdata=61;	
+
+}

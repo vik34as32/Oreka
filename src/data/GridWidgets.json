@@ -1,0 +1,188 @@
+{
+  "subbroker-volume": {
+    "id": "subbroker-volume",
+    "name": "SubBroker Volume",
+    "visibleCols": [
+      "login",
+      "symbol",
+      "subbroker",
+      "previousvolume",
+      "difference",
+      "volume",
+      "companyvolume"
+    ],
+    "functionCols": [
+      ["previousvolume", "SUM"],
+      ["difference", "SUM"],
+      ["volume", "SUM"],
+      ["companyvolume", "SUM"]
+    ],
+    "groupBy": ["subbroker", "symbol", "login"],
+    "splitBy": [],
+    "filterBy": [],
+    "dataSourceId": "client-position-live",
+    "componentType": "grid",
+    "pivot":true,
+    "filterColor":{
+      "color":"gray",
+      "type":"unlink"
+    },
+    "icon":"device_hub",
+    "icon1" : "bar_chart"
+  },
+  "broker-volume": {
+    "id": "broker-volume",
+    "name": "Broker Volume",
+    "visibleCols": [
+      "login",
+      "symbol",
+      "subbroker",
+      "broker",
+      "previousvolume",
+      "difference",
+      "volume",
+      "companyvolume"
+    ],
+    "functionCols": [
+      ["previousvolume", "SUM"],
+      ["difference", "SUM"],
+      ["volume", "SUM"],
+      ["companyvolume", "SUM"]
+    ],
+    "groupBy": ["broker","subbroker", "symbol", "login"],
+    "splitBy": [],
+    "filterBy": [],
+    "dataSourceId": "client-position-live",
+    "componentType": "grid",
+    "pivot":true,
+    "filterColor":{
+      "color":"gray",
+      "type":"unlink"
+    },
+    "icon":"account_balance",
+    "icon1" : "bar_chart"
+  },
+  "login-volume": {
+    "id": "login-volume",
+    "name": "Login Volume",
+    "visibleCols": [
+      "login",
+      "symbol",
+      "previousvolume",
+      "difference",
+      "volume",
+      "companyvolume"
+    ],
+    "functionCols": [
+      ["previousvolume", "SUM"],
+      ["difference", "SUM"],
+      ["volume", "SUM"],
+      ["companyvolume", "SUM"]
+    ],
+    "groupBy": ["login","symbol"],
+    "splitBy": [],
+    "filterBy": [],
+    "dataSourceId": "client-position-live",
+    "componentType": "grid",
+    "pivot":true,
+    "filterColor":{
+      "color":"gray",
+      "type":"unlink"
+    },
+    "icon":"fingerprint",
+    "icon1" : "bar_chart"
+  },
+  "subbroker-pl": {
+    "id": "subbroker-pl",
+    "name": "SubBroker P&L",
+    "visibleCols": [
+      "login",
+      "symbol",
+      "subbroker",
+      "clientbalance",
+      "clientfloatingpl",
+      "clientplnet",
+      "companyplnet"
+    ],
+    "functionCols": [
+      ["clientbalance", "SUM"],
+      ["clientfloatingpl", "SUM"],
+      ["clientplnet", "SUM"],
+      ["companyplnet", "SUM"]
+    ],
+    "groupBy": ["subbroker","symbol", "login"],
+    "splitBy": [],
+    "filterBy": [],
+    "dataSourceId": "client-position-live",
+    "componentType": "grid",
+    "pivot":true,
+    "filterColor":{
+      "color":"gray",
+      "type":"unlink"
+    },
+    "icon":"device_hub",
+    "icon1" : "swap_vert"
+  },
+  "broker-pl": {
+    "id": "broker-pl",
+    "name": "Broker P&L",
+    "visibleCols": [
+      "login",
+      "symbol",
+      "subbroker",
+      "broker",
+      "clientbalance",
+      "clientfloatingpl",
+      "clientplnet",
+      "companyplnet"
+    ],
+    "functionCols": [
+      ["clientbalance", "SUM"],
+      ["clientfloatingpl", "SUM"],
+      ["clientplnet", "SUM"],
+      ["companyplnet", "SUM"]
+    ],
+    "groupBy": ["broker","subbroker","symbol", "login"],
+    "splitBy": [],
+    "filterBy": [],
+    "dataSourceId": "client-position-live",
+    "componentType": "grid",
+    "pivot":true,
+    "filterColor":{
+      "color":"gray",
+      "type":"unlink"
+    },
+    "icon":"account_balance",
+    "icon1" :"swap_vert"
+  },
+  "login-balance": {
+    "id": "login-balance",
+    "name": "Login Balance",
+    "visibleCols": [
+      "login",
+      "symbol",
+      "clientbalance",
+      "clientfloatingpl",
+      "clientplnet",
+      "companyplnet"
+    ],
+    "functionCols": [
+      ["clientbalance", "SUM"],
+      ["clientfloatingpl", "SUM"],
+      ["clientplnet", "SUM"],
+      ["companyplnet", "SUM"]
+    ],
+    "groupBy": ["login", "symbol"],
+    "splitBy": [],
+    "filterBy": [],
+    "dataSourceId": "client-position-live",
+    "componentType": "grid",
+    "pivot":true,
+    "filterColor":{
+      "color":"gray",
+      "type":"unlink"
+    },
+    "icon":"fingerprint",
+    "icon1" :"swap_vert"
+  }
+}

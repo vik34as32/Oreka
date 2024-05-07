@@ -1,0 +1,32 @@
+{
+    "subbroker-balance": {
+        "id": "subbroker-balance",
+        "name": "Subbroker-Balance",
+        "visibleCols": [
+          "login",
+          "symbol",
+          "subbroker",
+          "clientbalance",
+          "clientfloatingpl",
+          "clientplnet",
+          "companyplnet"
+        ],
+        "functionCols": [
+          ["clientbalance", "SUM"],
+          ["clientfloatingpl", "SUM"]
+        ],
+        "groupBy": ["subbroker"],
+        "splitBy": [],
+        "filterBy": [],
+        "dataSourceId": "client-position-live",
+        "componentType": "chart",
+        "pivot":true,
+        "chartType":"Y Bar",
+        "filterColor": {
+          "color": "gray",
+          "type": "unlink"
+        },
+        "icon": "device_hub",
+        "icon1" : "bar_chart"
+      }
+}

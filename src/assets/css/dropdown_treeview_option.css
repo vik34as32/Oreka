@@ -1,0 +1,95 @@
+.bootstrap-demo .dropdown-trigger {
+    border-radius: 0.25rem;
+}
+
+.bootstrap-demo .dropdown-trigger>span:after {
+    font-size: 12px;
+    color: #555;
+}
+
+.bootstrap-demo .toggle {
+    font: normal normal normal 12px/1 "Material Icons";
+    color: #555;
+}
+
+.bootstrap-demo .toggle.collapsed::after {
+    cursor: pointer;
+    content: "\E5CF";
+    vertical-align: middle;
+    color: white;
+}
+
+.bootstrap-demo .toggle.expanded::after {
+    cursor: pointer;
+    content: "\E5CE";
+    vertical-align: middle;
+    color: white;
+}
+
+.bootstrap-demo input:focus {
+    border-color: #2B3348;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.bootstrap-demo input:active {
+    border-color: #2B3348;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.bootstrap-demo input:enabled {
+    border-color: #2B3348;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.bootstrap-demo ul>li:has(span) {
+    display: none;
+}
+
+.bootstrap-demo ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+.bootstrap-demo input[type=text] {
+    background: none;
+    margin-top: 1.5px;
+    height: 28px;
+    border-radius: 4px;
+    border-color: #2B3349;
+    border-width: 1px;
+    border-style: solid;
+    padding-right: 30px;
+    padding-left: 8px;
+    background-image: url('../icons/ArrowDown.svg');
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 25px;
+    color: white;
+    font-family: 'Inter';
+}
+
+.dropdown-content {
+    height: 145px;
+    width: 202px;
+    overflow: scroll;
+    border-width: 1px;
+    border-bottom-left-radius: 4px;
+    border-color: #2B3349;
+    border-style: solid;
+    border-bottom-right-radius: 4px;
+    color: #D9D9D9;
+    font-size: 0.9em;
+    position: relative;
+    z-index: 999;
+    background-color: #13171F;
+}
+
+.bootstrap-demo .root {
+    padding: 0px;
+    margin: 0px;
+}

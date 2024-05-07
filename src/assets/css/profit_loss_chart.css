@@ -1,0 +1,19 @@
+.ProfitLossChart {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.ProfitLossChart perspective-viewer {
+    width: 100%;
+    height: 100%;
+}
+
+.ProfitLossChart perspective-viewer[theme="Vaporwave"] {
+    --d3fc-axis-ticks--color: #C3C3C3;
+    --plugin--background: #13171F !important;
+     --d3fc-series-1: rgb(3, 78, 58);
+    --d3fc-series-2: rgba(1, 168, 123, 1);
+    --d3fc-series-3: rgb(97, 52, 63);
+    --d3fc-series-4: rgba(64, 40, 49, 1); 
+}

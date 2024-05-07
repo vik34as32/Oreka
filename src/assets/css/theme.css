@@ -1,0 +1,280 @@
+html {
+    font-family: 'Inter', sans-serif;
+    background: #020305;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background-color: #020305;
+    height: 100%;
+    width: 100%;
+}
+#app {
+    width: 100%;
+    height: 100%;
+}
+@font-face {
+    font-family: 'Inter';
+    src: url('../font/Inter-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../font/Inter-SemiBold.ttf');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../font/Inter-Light.ttf');
+    font-weight: lighter;
+    font-style: normal;
+}
+
+#Header {
+    background-color: #131722;
+    height: 46px;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#LeftMenuIcon {
+    width: 38px;
+    height: 24px;
+}
+
+
+#AppIcon {
+    width: 22.89px;
+    height: 28.08px;
+}
+
+#AppIconOffline {
+    width: 22.89px;
+    height: 28.08px;
+    filter: grayscale(94%);
+}
+
+#AppTitle {
+    width: 80.46px;
+    height: 23.12px;
+}
+
+#WebSocketConnectedDot {
+    width: 15px;
+    height: 15px;
+}
+
+#widget-link-select {
+    background-color:inherit;
+    height: 12px;
+}
+
+.HeaderVerticalSeperator {
+    width: 1px;
+    background-color: #2B3348;
+    height: 100%;
+}
+
+.HeaderTabs {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.HeaderTabs > div {
+    /* justify-content: center; */
+    align-items: center;
+    height: 100%;
+    display: flex;
+}
+
+.HeaderTabs img {
+    margin-left: 10px;
+}
+
+.HeaderTabs p {
+    font-size: 14px;
+    font-weight: 700;
+    font-family: Inter;
+}
+
+.HeaderTabItem {
+    font-weight: 700;
+    font-family: Inter;
+    font-size: 14px;
+    line-height: 14px;
+    padding: 5px;
+    margin: 0;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.HeaderOptions {
+    display: flex;
+    /* flex-wrap: wrap; */
+    flex-direction: row;
+    height: 100%;
+    width: max-content;
+}
+
+.HeaderOptions img {
+    margin: 0;
+    min-width: 32px;
+    min-height: 32px;
+    padding: 14px;
+}
+
+.RedDot {
+    box-sizing: border-box;
+
+    background: #E33B41;
+    border-radius: 15px;
+    width: 15px;
+    height: 15px;
+}
+
+.GreenDot {
+    box-sizing: border-box;
+
+    background: #239B59;
+    border-radius: 15px;
+    width: 15px;
+    height: 15px;
+}
+
+.BlueDot {
+    box-sizing: border-box;
+
+    background: #00C3FB;
+    border-radius: 15px;
+    width: 15px;
+    height: 15px;
+}
+
+.YellowDot {
+    box-sizing: border-box;
+
+    background: #CDC45D;
+    border-radius: 15px;
+    width: 15px;
+    height: 15px;
+}
+
+.PurpleDot {
+    box-sizing: border-box;
+
+    background: #D675C4;
+    border-radius: 15px;
+    width: 15px;
+    height: 15px;
+}
+
+.datepicker {
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 15px;
+    font-family: Inter;
+    border: 'none';
+}
+
+.datepicker input {
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 15px;
+    font-family: Inter;
+    padding: 0;
+    text-align: center;
+}
+
+.component_container {
+    background-color: #131722;
+    width: 100%;
+    height: 100%;
+}
+
+.modal-container {
+    background-color: #131722;
+    width: auto;
+    position: 'absolute';
+    top: '50%';
+    left: '50%';
+    transform: 'translate(-50%, -50%)';
+    width: 400px;
+    background-color: 'background.paper';
+    box-shadow: 24;
+    padding: "10px";
+    margin: "0px";
+}
+
+.modal-input-container {
+    background-color: #131722;
+}
+
+.accordion-no-padding {
+    padding: 0px;
+    margin: 0px;
+}
+
+.MuiAccordionSummary-content {
+    margin: 0px;
+    padding: 0px;
+}
+
+
+.header-text {
+    font-family: "Inter" !important;
+    font-weight: 700 !important;
+    font-size: 16px  !important;
+    color: #D5E2F0 !important;
+}
+
+.label-text {
+    font-family: "Inter" !important;
+    font-weight: 400 !important;
+    font-size: 12px !important;
+    color: #D5E2F0 !important;
+}
+
+
+.normal-text {
+    font-family: "Inter" !important;
+    font-weight: 400 !important;
+    font-size: 14px !important;
+    color: #D5E2F0 !important;
+    
+}
+
+.setting {
+    font-family: "Inter" !important;
+    font-weight: 500 !important;
+    font-size: 16px !important;
+    color: #D5E2F0 !important;
+}
+
+.menu-item {
+    font-family: "Inter" !important;
+    font-weight: 400 !important;
+    font-size: 14px !important;
+    color: #D5E2F0 !important;
+}
+
+@media only screen and (max-width: 768px) {
+    .orekaTitle {
+        display: none;
+    }
+
+    #Header {
+        width: max-content;
+    }
+}

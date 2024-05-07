@@ -1,0 +1,33 @@
+{
+  "sheet-panel": {
+    "id": "sheet-panel",
+    "name": "Sheet Panel",
+    "visibleCols": [
+      "login",
+      "symbol",
+      "subbroker",
+      "clientbalance",
+      "clientfloatingpl",
+      "clientplnet",
+      "companyplnet"
+    ],
+    "functionCols": [
+      ["clientbalance", "SUM"],
+      ["clientfloatingpl", "SUM"],
+      ["clientplnet", "SUM"],
+      ["companyplnet", "SUM"]
+    ],
+    "groupBy": ["subbroker", "symbol", "login"],
+    "splitBy": [],
+    "filterBy": [],
+    "dataSourceId": "client-position-live",
+    "componentType": "spreadsheet",
+    "pivot": true,
+    "filterColor": {
+      "color": "gray",
+      "type": "unlink"
+    },
+    "icon": "insights",
+    "icon1" : "language"
+  }
+}

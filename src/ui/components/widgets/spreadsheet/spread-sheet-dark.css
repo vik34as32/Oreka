@@ -1,0 +1,15 @@
+.gc-ribbon-bar, .gcsj-func-color-text {
+    color:black;
+}
+.gc-ribbon-bar .navigation-button-next {
+    display: none;
+}
+.ribbon {
+    box-sizing: unset;
+}
+.file-menu-list {
+    color:black;
+}
+.gc-container {
+    color:darkgray;
+}

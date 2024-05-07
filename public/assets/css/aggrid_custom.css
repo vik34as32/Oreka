@@ -1,0 +1,121 @@
+.ag-menu-option-text {
+    text-transform: capitalize;
+}
+
+.ag-grid-container {
+    height: 100%;
+}
+
+.ag-cell,
+.ag-header-cell {
+    line-height: 20px !important;
+    font-size: 12px;
+    padding-top: 2px;
+}
+
+.ag-header-cell {
+    padding-top: 4px;
+}
+
+.ag-theme-balham,
+.ag-theme-balham-dark {
+    font-size: 14px;
+}
+
+.ag-theme-balham-dark,
+.login-form-input,
+.login-form-input:focus {
+    background-color: rgb(45, 52, 54);
+}
+
+.ag-theme-balham-dark ul.reactAppMenubar--menu--submenus {
+    background-color: #1C1F20;
+}
+
+.ag-theme-balham .ag-header-cell-menu-button .ag-icon-menu {
+    height: 20px;
+}
+
+.ag-theme-balham-dark .ag-header-cell-menu-button .ag-icon-menu {
+    height: 20px;
+}
+
+.sm-btn {
+    padding: 1px 6px;
+    border-radius: 0;
+    font-size: 12px;
+}
+
+.ag-theme-balham .ag-value-change-delta-up {
+    font-size: 0;
+}
+
+.ag-theme-balham .ag-value-change-delta-down {
+    font-size: 0;
+}
+
+.ag-theme-balham-dark .ag-value-change-delta-up {
+    font-size: 0;
+}
+
+.ag-theme-balham-dark .ag-value-change-delta-down {
+    font-size: 0;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+.ag-theme-balham-dark ::-webkit-scrollbar-button:single-button {
+    background: #6B6B6B;
+}
+
+.ag-theme-balham-dark ::-webkit-scrollbar-track-piece {
+    background: #1c1f20;
+}
+
+.ag-theme-balham-dark ::-webkit-scrollbar-thumb {
+    background: #6B6B6B;
+}
+
+​ .ag-theme-balham ::-webkit-scrollbar-button:single-button {
+    background: #ccc;
+    color: black;
+}
+
+.ag-theme-balham ::-webkit-scrollbar-track-piece {
+    background: #dfdfdf;
+}
+
+.ag-theme-balham ::-webkit-scrollbar-thumb {
+    background: #afafaf;
+}
+
+​ .date-cell {
+    background-color: transparent;
+    height: 100%;
+    width: 100%;
+    padding: 2px 10px 0 10px;
+    border: none;
+}
+
+.ag-theme-balham .ag-rich-select .ag-rich-select-list {
+    height: fit-content;
+}
+
+.ag-theme-balham .ag-column-drop-horizontal-cell-text {
+    color: black;
+}
+
+.ag-theme-balham-dark .ag-column-drop-horizontal-cell-text {
+    color: white;
+}
+.ag-theme-balham-dark {
+    --ag-background-color: #13171F;
+    --ag-header-background-color: #0A0A0A;
+    --ag-border-color:#2B3348;
+    --ag-odd-row-background-color: #13171F;
+    --ag-row-hover-color:#033956;
+    --ag-font-family: sans-serif;
+}

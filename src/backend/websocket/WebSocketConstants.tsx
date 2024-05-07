@@ -1,0 +1,11 @@
+export const LOGIN = "login";
+export const LOGIN_STATUS = "LOGIN_STATUS";
+export const LOGOUT = "LOGOUT";
+export const LOGOUT_STATUS = "LOGOUT_STATUS";
+
+export const MAX_RECONNECTION_ATTEMPT = 2;
+export const ALLOW_INFINITE_RECONNECTION_ATTEMPTS = false;
+export const RECONNECTION_ATTEMPT_FREQUENCY_MS = 5000;
+export const HEART_BEAT_WAITING_TIMEOUT = 5000;
+export const RECONNECTION_INTERVAL_TIME = 5000;
+export const MAX_HEART_BEAT_WAITING_ATTEMPTS = 3;
