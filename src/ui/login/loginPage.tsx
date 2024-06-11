@@ -309,8 +309,6 @@ webscoketConneter = () => {
          email != undefined &&
          password != undefined 
        ) {
-
-        alert(":jjjjj")
          this.props.login(email, password,fingerPrint);
          this.isNewRequest = true;
        

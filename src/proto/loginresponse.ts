@@ -3,7 +3,6 @@
  * compiler version: 4.23.4
  * source: loginresponse.proto
  * git: https://github.com/thesayyn/protoc-gen-ts */
-import * as dependency_1 from "./tabdata";
 import * as pb_1 from "google-protobuf";
 export namespace Oreka {
     export class LoginResponse extends pb_1.Message {
@@ -12,7 +11,6 @@ export namespace Oreka {
             type?: string;
             status?: string;
             logintoken?: string;
-            data?: dependency_1.Oreka.TabData;
         }) {
             super();
             pb_1.Message.initialize(this, Array.isArray(data) ? data : [], 0, -1, [], this.#one_of_decls);
@@ -25,9 +23,6 @@ export namespace Oreka {
                 }
                 if ("logintoken" in data && data.logintoken != undefined) {
                     this.logintoken = data.logintoken;
-                }
-                if ("data" in data && data.data != undefined) {
-                    this.data = data.data;
                 }
             }
         }
@@ -49,20 +44,10 @@ export namespace Oreka {
         set logintoken(value: string) {
             pb_1.Message.setField(this, 3, value);
         }
-        get data() {
-            return pb_1.Message.getWrapperField(this, dependency_1.Oreka.TabData, 4) as dependency_1.Oreka.TabData;
-        }
-        set data(value: dependency_1.Oreka.TabData) {
-            pb_1.Message.setWrapperField(this, 4, value);
-        }
-        get has_data() {
-            return pb_1.Message.getField(this, 4) != null;
-        }
         static fromObject(data: {
             type?: string;
             status?: string;
             logintoken?: string;
-            data?: ReturnType<typeof dependency_1.Oreka.TabData.prototype.toObject>;
         }): LoginResponse {
             const message = new LoginResponse({});
             if (data.type != null) {
@@ -74,9 +59,6 @@ export namespace Oreka {
             if (data.logintoken != null) {
                 message.logintoken = data.logintoken;
             }
-            if (data.data != null) {
-                message.data = dependency_1.Oreka.TabData.fromObject(data.data);
-            }
             return message;
         }
         toObject() {
@@ -84,7 +66,6 @@ export namespace Oreka {
                 type?: string;
                 status?: string;
                 logintoken?: string;
-                data?: ReturnType<typeof dependency_1.Oreka.TabData.prototype.toObject>;
             } = {};
             if (this.type != null) {
                 data.type = this.type;
@@ -94,9 +75,6 @@ export namespace Oreka {
             }
             if (this.logintoken != null) {
                 data.logintoken = this.logintoken;
-            }
-            if (this.data != null) {
-                data.data = this.data.toObject();
             }
             return data;
         }
@@ -110,8 +88,6 @@ export namespace Oreka {
                 writer.writeString(2, this.status);
             if (this.logintoken.length)
                 writer.writeString(3, this.logintoken);
-            if (this.has_data)
-                writer.writeMessage(4, this.data, () => this.data.serialize(writer));
             if (!w)
                 return writer.getResultBuffer();
         }
@@ -129,9 +105,6 @@ export namespace Oreka {
                         break;
                     case 3:
                         message.logintoken = reader.readString();
-                        break;
-                    case 4:
-                        reader.readMessage(message.data, () => message.data = dependency_1.Oreka.TabData.deserialize(reader));
                         break;
                     default: reader.skipField();
                 }

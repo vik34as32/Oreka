@@ -5,17 +5,12 @@
  * git: https://github.com/thesayyn/protoc-gen-ts */
 import * as dependency_1 from "./loginrequest";
 import * as dependency_2 from "./loginresponse";
-import * as dependency_3 from "./LoginByToken";
-import * as dependency_4 from "./DealingDataInterval";
-import * as dependency_5 from "./FetchDealingDataInterval";
-import * as dependency_6 from "./FetchLoginDevice";
-import * as dependency_7 from "./LoginDeviceLog";
-import * as dependency_8 from "./SubscribeTicker";
-import * as dependency_9 from "./TickData";
+import * as dependency_3 from "./SubscribeTicker";
+import * as dependency_4 from "./TickData";
 import * as pb_1 from "google-protobuf";
 export namespace Oreka {
     export class ClientMessage extends pb_1.Message {
-        #one_of_decls: number[][] = [[2], [3], [7], [10], [20], [87], [88], [46], [61]];
+        #one_of_decls: number[][] = [[2], [3], [4], [5]];
         constructor(data?: any[] | ({
             type?: string;
         } & (({
@@ -23,19 +18,9 @@ export namespace Oreka {
         }) | ({
             loginresponse?: dependency_2.Oreka.LoginResponse;
         }) | ({
-            fetchDealingdatainterval?: dependency_5.Oreka.FetchDealingDataInterval;
+            subscribeticker?: dependency_3.Oreka.SubscribeTicker;
         }) | ({
-            loginbytoken?: dependency_3.Oreka.LoginByToken;
-        }) | ({
-            dealingdatainterval?: dependency_4.Oreka.DealingDataInterval;
-        }) | ({
-            fetchlogindevice?: dependency_6.Oreka.FetchLoginDevice;
-        }) | ({
-            logindevicelog?: dependency_7.Oreka.LoginDeviceLog;
-        }) | ({
-            subscribeticker?: dependency_8.Oreka.SubscribeTicker;
-        }) | ({
-            tickdata?: dependency_9.Oreka.TickData;
+            tickdata?: dependency_4.Oreka.TickData;
         })))) {
             super();
             pb_1.Message.initialize(this, Array.isArray(data) ? data : [], 0, -1, [], this.#one_of_decls);
@@ -48,21 +33,6 @@ export namespace Oreka {
                 }
                 if ("loginresponse" in data && data.loginresponse != undefined) {
                     this.loginresponse = data.loginresponse;
-                }
-                if ("fetchDealingdatainterval" in data && data.fetchDealingdatainterval != undefined) {
-                    this.fetchDealingdatainterval = data.fetchDealingdatainterval;
-                }
-                if ("loginbytoken" in data && data.loginbytoken != undefined) {
-                    this.loginbytoken = data.loginbytoken;
-                }
-                if ("dealingdatainterval" in data && data.dealingdatainterval != undefined) {
-                    this.dealingdatainterval = data.dealingdatainterval;
-                }
-                if ("fetchlogindevice" in data && data.fetchlogindevice != undefined) {
-                    this.fetchlogindevice = data.fetchlogindevice;
-                }
-                if ("logindevicelog" in data && data.logindevicelog != undefined) {
-                    this.logindevicelog = data.logindevicelog;
                 }
                 if ("subscribeticker" in data && data.subscribeticker != undefined) {
                     this.subscribeticker = data.subscribeticker;
@@ -96,68 +66,23 @@ export namespace Oreka {
         get has_loginresponse() {
             return pb_1.Message.getField(this, 3) != null;
         }
-        get fetchDealingdatainterval() {
-            return pb_1.Message.getWrapperField(this, dependency_5.Oreka.FetchDealingDataInterval, 7) as dependency_5.Oreka.FetchDealingDataInterval;
-        }
-        set fetchDealingdatainterval(value: dependency_5.Oreka.FetchDealingDataInterval) {
-            pb_1.Message.setOneofWrapperField(this, 7, this.#one_of_decls[2], value);
-        }
-        get has_fetchDealingdatainterval() {
-            return pb_1.Message.getField(this, 7) != null;
-        }
-        get loginbytoken() {
-            return pb_1.Message.getWrapperField(this, dependency_3.Oreka.LoginByToken, 10) as dependency_3.Oreka.LoginByToken;
-        }
-        set loginbytoken(value: dependency_3.Oreka.LoginByToken) {
-            pb_1.Message.setOneofWrapperField(this, 10, this.#one_of_decls[3], value);
-        }
-        get has_loginbytoken() {
-            return pb_1.Message.getField(this, 10) != null;
-        }
-        get dealingdatainterval() {
-            return pb_1.Message.getWrapperField(this, dependency_4.Oreka.DealingDataInterval, 20) as dependency_4.Oreka.DealingDataInterval;
-        }
-        set dealingdatainterval(value: dependency_4.Oreka.DealingDataInterval) {
-            pb_1.Message.setOneofWrapperField(this, 20, this.#one_of_decls[4], value);
-        }
-        get has_dealingdatainterval() {
-            return pb_1.Message.getField(this, 20) != null;
-        }
-        get fetchlogindevice() {
-            return pb_1.Message.getWrapperField(this, dependency_6.Oreka.FetchLoginDevice, 87) as dependency_6.Oreka.FetchLoginDevice;
-        }
-        set fetchlogindevice(value: dependency_6.Oreka.FetchLoginDevice) {
-            pb_1.Message.setOneofWrapperField(this, 87, this.#one_of_decls[5], value);
-        }
-        get has_fetchlogindevice() {
-            return pb_1.Message.getField(this, 87) != null;
-        }
-        get logindevicelog() {
-            return pb_1.Message.getWrapperField(this, dependency_7.Oreka.LoginDeviceLog, 88) as dependency_7.Oreka.LoginDeviceLog;
-        }
-        set logindevicelog(value: dependency_7.Oreka.LoginDeviceLog) {
-            pb_1.Message.setOneofWrapperField(this, 88, this.#one_of_decls[6], value);
-        }
-        get has_logindevicelog() {
-            return pb_1.Message.getField(this, 88) != null;
-        }
         get subscribeticker() {
-            return pb_1.Message.getWrapperField(this, dependency_8.Oreka.SubscribeTicker, 46) as dependency_8.Oreka.SubscribeTicker;
+            return pb_1.Message.getWrapperField(this, dependency_3.Oreka.SubscribeTicker, 4) as dependency_3.Oreka.SubscribeTicker;
         }
-        set subscribeticker(value: dependency_8.Oreka.SubscribeTicker) {
-            pb_1.Message.setOneofWrapperField(this, 46, this.#one_of_decls[7], value);
+        set subscribeticker(value: dependency_3.Oreka.SubscribeTicker) {
+            pb_1.Message.setOneofWrapperField(this, 4, this.#one_of_decls[2], value);
         }
         get has_subscribeticker() {
-            return pb_1.Message.getField(this, 46) != null;
+            return pb_1.Message.getField(this, 4) != null;
         }
         get tickdata() {
-            return pb_1.Message.getWrapperField(this, dependency_9.Oreka.TickData, 61) as dependency_9.Oreka.TickData;
+            return pb_1.Message.getWrapperField(this, dependency_4.Oreka.TickData, 5) as dependency_4.Oreka.TickData;
         }
-        set tickdata(value: dependency_9.Oreka.TickData) {
-            pb_1.Message.setOneofWrapperField(this, 61, this.#one_of_decls[8], value);
+        set tickdata(value: dependency_4.Oreka.TickData) {
+            pb_1.Message.setOneofWrapperField(this, 5, this.#one_of_decls[3], value);
         }
         get has_tickdata() {
-            return pb_1.Message.getField(this, 61) != null;
+            return pb_1.Message.getField(this, 5) != null;
         }
         get _loginrequest() {
             const cases: {
@@ -177,80 +102,30 @@ export namespace Oreka {
             };
             return cases[pb_1.Message.computeOneofCase(this, [3])];
         }
-        get _fetchDealingdatainterval() {
-            const cases: {
-                [index: number]: "none" | "fetchDealingdatainterval";
-            } = {
-                0: "none",
-                7: "fetchDealingdatainterval"
-            };
-            return cases[pb_1.Message.computeOneofCase(this, [7])];
-        }
-        get _loginbytoken() {
-            const cases: {
-                [index: number]: "none" | "loginbytoken";
-            } = {
-                0: "none",
-                10: "loginbytoken"
-            };
-            return cases[pb_1.Message.computeOneofCase(this, [10])];
-        }
-        get _dealingdatainterval() {
-            const cases: {
-                [index: number]: "none" | "dealingdatainterval";
-            } = {
-                0: "none",
-                20: "dealingdatainterval"
-            };
-            return cases[pb_1.Message.computeOneofCase(this, [20])];
-        }
-        get _fetchlogindevice() {
-            const cases: {
-                [index: number]: "none" | "fetchlogindevice";
-            } = {
-                0: "none",
-                87: "fetchlogindevice"
-            };
-            return cases[pb_1.Message.computeOneofCase(this, [87])];
-        }
-        get _logindevicelog() {
-            const cases: {
-                [index: number]: "none" | "logindevicelog";
-            } = {
-                0: "none",
-                88: "logindevicelog"
-            };
-            return cases[pb_1.Message.computeOneofCase(this, [88])];
-        }
         get _subscribeticker() {
             const cases: {
                 [index: number]: "none" | "subscribeticker";
             } = {
                 0: "none",
-                46: "subscribeticker"
+                4: "subscribeticker"
             };
-            return cases[pb_1.Message.computeOneofCase(this, [46])];
+            return cases[pb_1.Message.computeOneofCase(this, [4])];
         }
         get _tickdata() {
             const cases: {
                 [index: number]: "none" | "tickdata";
             } = {
                 0: "none",
-                61: "tickdata"
+                5: "tickdata"
             };
-            return cases[pb_1.Message.computeOneofCase(this, [61])];
+            return cases[pb_1.Message.computeOneofCase(this, [5])];
         }
         static fromObject(data: {
             type?: string;
             loginrequest?: ReturnType<typeof dependency_1.Oreka.LoginRequest.prototype.toObject>;
             loginresponse?: ReturnType<typeof dependency_2.Oreka.LoginResponse.prototype.toObject>;
-            fetchDealingdatainterval?: ReturnType<typeof dependency_5.Oreka.FetchDealingDataInterval.prototype.toObject>;
-            loginbytoken?: ReturnType<typeof dependency_3.Oreka.LoginByToken.prototype.toObject>;
-            dealingdatainterval?: ReturnType<typeof dependency_4.Oreka.DealingDataInterval.prototype.toObject>;
-            fetchlogindevice?: ReturnType<typeof dependency_6.Oreka.FetchLoginDevice.prototype.toObject>;
-            logindevicelog?: ReturnType<typeof dependency_7.Oreka.LoginDeviceLog.prototype.toObject>;
-            subscribeticker?: ReturnType<typeof dependency_8.Oreka.SubscribeTicker.prototype.toObject>;
-            tickdata?: ReturnType<typeof dependency_9.Oreka.TickData.prototype.toObject>;
+            subscribeticker?: ReturnType<typeof dependency_3.Oreka.SubscribeTicker.prototype.toObject>;
+            tickdata?: ReturnType<typeof dependency_4.Oreka.TickData.prototype.toObject>;
         }): ClientMessage {
             const message = new ClientMessage({});
             if (data.type != null) {
@@ -262,26 +137,11 @@ export namespace Oreka {
             if (data.loginresponse != null) {
                 message.loginresponse = dependency_2.Oreka.LoginResponse.fromObject(data.loginresponse);
             }
-            if (data.fetchDealingdatainterval != null) {
-                message.fetchDealingdatainterval = dependency_5.Oreka.FetchDealingDataInterval.fromObject(data.fetchDealingdatainterval);
-            }
-            if (data.loginbytoken != null) {
-                message.loginbytoken = dependency_3.Oreka.LoginByToken.fromObject(data.loginbytoken);
-            }
-            if (data.dealingdatainterval != null) {
-                message.dealingdatainterval = dependency_4.Oreka.DealingDataInterval.fromObject(data.dealingdatainterval);
-            }
-            if (data.fetchlogindevice != null) {
-                message.fetchlogindevice = dependency_6.Oreka.FetchLoginDevice.fromObject(data.fetchlogindevice);
-            }
-            if (data.logindevicelog != null) {
-                message.logindevicelog = dependency_7.Oreka.LoginDeviceLog.fromObject(data.logindevicelog);
-            }
             if (data.subscribeticker != null) {
-                message.subscribeticker = dependency_8.Oreka.SubscribeTicker.fromObject(data.subscribeticker);
+                message.subscribeticker = dependency_3.Oreka.SubscribeTicker.fromObject(data.subscribeticker);
             }
             if (data.tickdata != null) {
-                message.tickdata = dependency_9.Oreka.TickData.fromObject(data.tickdata);
+                message.tickdata = dependency_4.Oreka.TickData.fromObject(data.tickdata);
             }
             return message;
         }
@@ -290,13 +150,8 @@ export namespace Oreka {
                 type?: string;
                 loginrequest?: ReturnType<typeof dependency_1.Oreka.LoginRequest.prototype.toObject>;
                 loginresponse?: ReturnType<typeof dependency_2.Oreka.LoginResponse.prototype.toObject>;
-                fetchDealingdatainterval?: ReturnType<typeof dependency_5.Oreka.FetchDealingDataInterval.prototype.toObject>;
-                loginbytoken?: ReturnType<typeof dependency_3.Oreka.LoginByToken.prototype.toObject>;
-                dealingdatainterval?: ReturnType<typeof dependency_4.Oreka.DealingDataInterval.prototype.toObject>;
-                fetchlogindevice?: ReturnType<typeof dependency_6.Oreka.FetchLoginDevice.prototype.toObject>;
-                logindevicelog?: ReturnType<typeof dependency_7.Oreka.LoginDeviceLog.prototype.toObject>;
-                subscribeticker?: ReturnType<typeof dependency_8.Oreka.SubscribeTicker.prototype.toObject>;
-                tickdata?: ReturnType<typeof dependency_9.Oreka.TickData.prototype.toObject>;
+                subscribeticker?: ReturnType<typeof dependency_3.Oreka.SubscribeTicker.prototype.toObject>;
+                tickdata?: ReturnType<typeof dependency_4.Oreka.TickData.prototype.toObject>;
             } = {};
             if (this.type != null) {
                 data.type = this.type;
@@ -306,21 +161,6 @@ export namespace Oreka {
             }
             if (this.loginresponse != null) {
                 data.loginresponse = this.loginresponse.toObject();
-            }
-            if (this.fetchDealingdatainterval != null) {
-                data.fetchDealingdatainterval = this.fetchDealingdatainterval.toObject();
-            }
-            if (this.loginbytoken != null) {
-                data.loginbytoken = this.loginbytoken.toObject();
-            }
-            if (this.dealingdatainterval != null) {
-                data.dealingdatainterval = this.dealingdatainterval.toObject();
-            }
-            if (this.fetchlogindevice != null) {
-                data.fetchlogindevice = this.fetchlogindevice.toObject();
-            }
-            if (this.logindevicelog != null) {
-                data.logindevicelog = this.logindevicelog.toObject();
             }
             if (this.subscribeticker != null) {
                 data.subscribeticker = this.subscribeticker.toObject();
@@ -340,20 +180,10 @@ export namespace Oreka {
                 writer.writeMessage(2, this.loginrequest, () => this.loginrequest.serialize(writer));
             if (this.has_loginresponse)
                 writer.writeMessage(3, this.loginresponse, () => this.loginresponse.serialize(writer));
-            if (this.has_fetchDealingdatainterval)
-                writer.writeMessage(7, this.fetchDealingdatainterval, () => this.fetchDealingdatainterval.serialize(writer));
-            if (this.has_loginbytoken)
-                writer.writeMessage(10, this.loginbytoken, () => this.loginbytoken.serialize(writer));
-            if (this.has_dealingdatainterval)
-                writer.writeMessage(20, this.dealingdatainterval, () => this.dealingdatainterval.serialize(writer));
-            if (this.has_fetchlogindevice)
-                writer.writeMessage(87, this.fetchlogindevice, () => this.fetchlogindevice.serialize(writer));
-            if (this.has_logindevicelog)
-                writer.writeMessage(88, this.logindevicelog, () => this.logindevicelog.serialize(writer));
             if (this.has_subscribeticker)
-                writer.writeMessage(46, this.subscribeticker, () => this.subscribeticker.serialize(writer));
+                writer.writeMessage(4, this.subscribeticker, () => this.subscribeticker.serialize(writer));
             if (this.has_tickdata)
-                writer.writeMessage(61, this.tickdata, () => this.tickdata.serialize(writer));
+                writer.writeMessage(5, this.tickdata, () => this.tickdata.serialize(writer));
             if (!w)
                 return writer.getResultBuffer();
         }
@@ -372,26 +202,11 @@ export namespace Oreka {
                     case 3:
                         reader.readMessage(message.loginresponse, () => message.loginresponse = dependency_2.Oreka.LoginResponse.deserialize(reader));
                         break;
-                    case 7:
-                        reader.readMessage(message.fetchDealingdatainterval, () => message.fetchDealingdatainterval = dependency_5.Oreka.FetchDealingDataInterval.deserialize(reader));
+                    case 4:
+                        reader.readMessage(message.subscribeticker, () => message.subscribeticker = dependency_3.Oreka.SubscribeTicker.deserialize(reader));
                         break;
-                    case 10:
-                        reader.readMessage(message.loginbytoken, () => message.loginbytoken = dependency_3.Oreka.LoginByToken.deserialize(reader));
-                        break;
-                    case 20:
-                        reader.readMessage(message.dealingdatainterval, () => message.dealingdatainterval = dependency_4.Oreka.DealingDataInterval.deserialize(reader));
-                        break;
-                    case 87:
-                        reader.readMessage(message.fetchlogindevice, () => message.fetchlogindevice = dependency_6.Oreka.FetchLoginDevice.deserialize(reader));
-                        break;
-                    case 88:
-                        reader.readMessage(message.logindevicelog, () => message.logindevicelog = dependency_7.Oreka.LoginDeviceLog.deserialize(reader));
-                        break;
-                    case 46:
-                        reader.readMessage(message.subscribeticker, () => message.subscribeticker = dependency_8.Oreka.SubscribeTicker.deserialize(reader));
-                        break;
-                    case 61:
-                        reader.readMessage(message.tickdata, () => message.tickdata = dependency_9.Oreka.TickData.deserialize(reader));
+                    case 5:
+                        reader.readMessage(message.tickdata, () => message.tickdata = dependency_4.Oreka.TickData.deserialize(reader));
                         break;
                     default: reader.skipField();
                 }

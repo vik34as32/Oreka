@@ -23,7 +23,8 @@ import {
   DataSourceType,
   dataSources,
 } from "../../../../redux/reducers/canvas/CanvasReducer";
-import { generateUniqueId } from "../../../../utilities/GridComponentUtilities";
+// import { generateUniqueId } from "../../../../utilities/GridComponentUtilities";
+// import {generateUniqueId} from '../../'
 import WidgetFactory, {
   DataColumnPropertyMap,
   WidgetProps,
@@ -61,12 +62,12 @@ const SpreadSheetComponent = React.forwardRef(
     const getRowNodeId = useCallback(
       (rowData: any) => {
         if (!dataSourceRef.current) return "";
-        if (rowData.data)
-          return generateUniqueId(
-            dataSourceRef.current.uniqueKey,
-            rowData.data
-          );
-        else return generateUniqueId(dataSourceRef.current.uniqueKey, rowData);
+        // if (rowData.data)
+        //   return generateUniqueId(
+        //     dataSourceRef.current.uniqueKey,
+        //     rowData.data
+        //   );
+        // else return generateUniqueId(dataSourceRef.current.uniqueKey, rowData);
       },
       [props.dataSourceId]
     );
