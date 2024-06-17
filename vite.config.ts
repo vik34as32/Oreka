@@ -34,21 +34,36 @@ const manifestForPlugin: Partial<VitePWAOptions> = {
 };
 
 // https://vitejs.dev/config/
+// export default defineConfig({
+//   resolve: {
+//     alias: {
+//       "@svg": path.resolve(__dirname, "src/assets/icons/"),
+//     },
+//   },
+//   plugins: [
+//     svgr({
+//       exportAsDefault: true,
+//     }),
+//     react(),
+//     comlink(),
+//     VitePWA(manifestForPlugin),
+//   ],
+//   worker: {
+//     plugins: [comlink()],
+//   },
+// });
+
 export default defineConfig({
-  resolve: {
-    alias: {
-      "@svg": path.resolve(__dirname, "src/assets/icons/"),
+  build: {
+    chunkSizeWarningLimit: 100,
+    rollupOptions: {
+      onwarn(warning, warn) {
+        if (warning.code === "MODULE_LEVEL_DIRECTIVE") {
+          return;
+        }
+        warn(warning);
+      },
     },
   },
-  plugins: [
-    svgr({
-      exportAsDefault: true,
-    }),
-    react(),
-    comlink(),
-    VitePWA(manifestForPlugin),
-  ],
-  worker: {
-    plugins: [comlink()],
-  },
+  plugins: [react()],
 });
