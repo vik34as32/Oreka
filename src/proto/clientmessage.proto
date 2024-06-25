@@ -4,6 +4,7 @@ import "loginrequest.proto";
 import "loginresponse.proto";
 import "SubscribeTicker.proto";
 import "TickData.proto";
+import "AlertSetting.proto";
 
 message ClientMessage 
 {
@@ -11,5 +12,6 @@ message ClientMessage
     optional LoginRequest   					loginrequest = 2;
     optional LoginResponse  					loginresponse = 3;	
 	optional SubscribeTicker					subscribeticker=4;	
-	optional TickData							tickdata=5;		
+	optional TickData							tickdata=5;
+    optional AlertSetting                       alertsetting=89;		
 }

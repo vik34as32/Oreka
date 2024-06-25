@@ -1,0 +1,40 @@
+syntax = "proto3";
+package Oreka;
+message AlertSetting {
+
+    message Or_condition {
+        string or_compare_condition = 1;
+        string or_condition_type = 2;
+        string or_condition_value = 3;
+    }
+
+    message Conditions {
+        string compare_condition = 1;
+        string condition_type = 2;
+        string condition_value = 3;
+        repeated Or_condition or_condition = 4;
+    }
+
+    message Actions {
+        string action = 1;
+        string action_name = 2;
+        string action_send_by = 3;
+        string action_send_to = 4;
+        string action_trigger = 5;
+    }
+
+    string type = 1;
+    string alert_name = 2;
+    string trigger_type = 3;
+    string start_time = 4;
+    string expiry_time = 5;
+    repeated string days_of_week = 6;
+    repeated string selected_months = 7;
+    repeated string days_of_month = 8;
+    uint32 repetitions = 9;
+    uint32 days = 10;
+    uint32 hours = 11;
+    uint32 minutes = 12;
+    repeated Conditions conditions = 13;
+    repeated Actions actions = 14;
+}

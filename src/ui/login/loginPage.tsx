@@ -16,7 +16,7 @@ import * as loginActions from "../../redux/action-handlers/login/LoginActions";
 import MessageComponent from "../components/common/message/MessageComponent";
 import { Oreka as LoginByToken} from "../../proto/LoginByToken";
 import { Oreka as ClientMessage } from "../../proto/clientmessage";
-import { DataSourceSubscriber, deregisterDealingPanel, registerDealingPanel,LoginPanelSubscriber,registerLoginDevicePanel, setActiveColumnsForDataSource, updateDealingPanelSubscription,subscribeToTicker } from '../../redux/action-handlers/app/AppActions'
+import { DataSourceSubscriber, deregisterDealingPanel, registerDealingPanel,LoginPanelSubscriber,registerLoginDevicePanel, setActiveColumnsForDataSource, updateDealingPanelSubscription,subscribeToTicker,AlerttSystem } from '../../redux/action-handlers/app/AppActions'
 import WatchListServiceFactory  from '../../backend/data-subcription/WatchListService'
 import { useSelector } from "react-redux";
 
@@ -294,46 +294,61 @@ webscoketConneter = () => {
 }
 
 
+handleSubmit = (): void => {
+  const { userName } = this.state;
+  const data = JSON.parse(userName);
+  console.log(data, "jjj");
 
-  handleSubmit = (): void => {
-    const { userName } = this.state;
-     const data = JSON.parse(userName)
-    if(data?.type=="login"){
-      console.log(data,"12211") 
-      var email = data.login
-      var password = data.pwd
-   
-       var fingerPrint = ""
-       console.log("serialNo",fingerPrint)
-       if (
-         email != undefined &&
-         password != undefined 
-       ) {
-         this.props.login(email, password,fingerPrint);
-         this.isNewRequest = true;
-       
-       }
-   
-    }else if(data?.type=="FETCH_DEALING_DATA_INTERVAL"){
-        if(data.subscriptionId!=undefined &&data.startTime!=undefined &&data.endTime!=undefined&&data.type!=undefined){
-          registerDealingPanel(subscriber,this.webscoketConneter,data.subscriptionId,data.startTime,data.endTime)
-        }
-       
-    }else if(data?.type=="FETCH_LOGIN_DEVICE_LOG"){
-      
-      if(data.startTime!=undefined &&data.endTime!=undefined&&data.type!=undefined){
-        registerLoginDevicePanel(loginsubscriber,data.startTime,data.endTime)
-      }
-    }else{
-      if(data.type!=undefined,data.tickers!=undefined){
-        subscribeToTicker(data.type,data.tickers)
-      }
-          
-          
-    }
-    
+  switch (data?.type) {
+    case "login":
+      console.log(data, "ql");
+      console.log(data, "12211");
+      const email = data.login;
+      const password = data.pwd;
+      const fingerPrint = "";
+      console.log("serialNo", fingerPrint);
 
-  };
+      if (email !== undefined && password !== undefined) {
+        this.props.login(email, password, fingerPrint);
+        this.isNewRequest = true;
+      }
+      break;
+
+    case "FETCH_DEALING_DATA_INTERVAL":
+      console.log(data, "eeeeeeee");
+      if (data.subscriptionId !== undefined && data.startTime !== undefined && data.endTime !== undefined) {
+        registerDealingPanel(subscriber, this.websocketConneter, data.subscriptionId, data.startTime, data.endTime);
+      }
+      break;
+
+    case "FETCH_LOGIN_DEVICE_LOG":
+      console.log(data, "kkkkkkkk");
+      if (data.startTime !== undefined && data.endTime !== undefined) {
+        registerLoginDevicePanel(loginsubscriber, data.startTime, data.endTime);
+      }
+      break;
+
+    case "SUBSCRIBE_TICKER":
+      console.log(data, "mk");
+      if (data.tickers !== undefined) {
+        subscribeToTicker(data.type, data.tickers);
+      } 
+      break;
+
+    case "SAVE_UPDATE_ALERT":
+      console.log(data, "mk");
+      if (data.type !== undefined) {
+        AlerttSystem(data)
+      } 
+      break;
+
+    default:
+      console.log("Unknown data type:", data?.type);
+       
+      break;
+  }
+};
+
 
 
 
@@ -361,7 +376,14 @@ webscoketConneter = () => {
           <input aria-controls="list" aria-label="Search"  value={this.state.userName} /> <button onClick={this.handleSubmit}>send</button>
           <ul id="list" style={{ color: "black" }}>
           <li onClick={() => this.setState({ userName: '{"type":"login","login":"1001","pwd":"&FXAU1823@#!tkio","serialNo":""}' })}>Login</li>
-          <li onClick={() => this.setState({ userName: '{"type":"SUBSCRIBE_TICKER","tickers":["XAUZ"]}' })}>Subscriber</li>
+          <li onClick={() => this.setState({ userName: '{"type":"SUBSCRIBE_TICKER","tickers":["GOLDJUN"]}' })}>Subscriber</li>
+          <li onClick={() => this.setState({ 
+     userName: '{"type":"SAVE_UPDATE_ALERT","alertName":"gold","triggerType":"Client Position Table > Position Volume Update","startTime":"2024-06-05 00:01","expiryTime":"","daysOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"selectedMonths":["January","February","March","April","May","June","July","August","September","October","November","December"],"daysOfMonth":["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"],"repetitions":2,"days":1,"hours":0,"minutes":0,"conditions":[{"compareCondition":"Not equal","conditionType":"Schedule > Date","conditionValue":"thtyg","orCondition":[{"orCompareCondition":"Equals (=)","orConditionType":"Account > Client Brokage","orConditionValue":"bhgj"}]},{"compareCondition":"Equals (=)","conditionType":"Symbol > Symbol","conditionValue":"dfthy","orCondition":[]}],"actions":[{"action":"Message > Send to Oreka","actionName":"helloo","actionSendBy":"Trigger","actionSendTo":"*","actionTrigger":"hello"}]}' 
+})}>
+    EventManagementSystemData
+</li>
+
+
 
             {/* <li value='{"type":"SUBSCRIBE_TICKER","tickers":["XAUZ"]}' onChange={(e) => this.setState({ userName: e.target.value })}>Subscriber</li> */}
           </ul>

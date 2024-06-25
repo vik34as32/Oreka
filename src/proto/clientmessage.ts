@@ -7,10 +7,11 @@ import * as dependency_1 from "./loginrequest";
 import * as dependency_2 from "./loginresponse";
 import * as dependency_3 from "./SubscribeTicker";
 import * as dependency_4 from "./TickData";
+import * as dependency_5 from "./AlertSetting";
 import * as pb_1 from "google-protobuf";
 export namespace Oreka {
     export class ClientMessage extends pb_1.Message {
-        #one_of_decls: number[][] = [[2], [3], [4], [5]];
+        #one_of_decls: number[][] = [[2], [3], [4], [5], [89]];
         constructor(data?: any[] | ({
             type?: string;
         } & (({
@@ -21,6 +22,8 @@ export namespace Oreka {
             subscribeticker?: dependency_3.Oreka.SubscribeTicker;
         }) | ({
             tickdata?: dependency_4.Oreka.TickData;
+        }) | ({
+            alertsetting?: dependency_5.Oreka.AlertSetting;
         })))) {
             super();
             pb_1.Message.initialize(this, Array.isArray(data) ? data : [], 0, -1, [], this.#one_of_decls);
@@ -39,6 +42,9 @@ export namespace Oreka {
                 }
                 if ("tickdata" in data && data.tickdata != undefined) {
                     this.tickdata = data.tickdata;
+                }
+                if ("alertsetting" in data && data.alertsetting != undefined) {
+                    this.alertsetting = data.alertsetting;
                 }
             }
         }
@@ -84,6 +90,15 @@ export namespace Oreka {
         get has_tickdata() {
             return pb_1.Message.getField(this, 5) != null;
         }
+        get alertsetting() {
+            return pb_1.Message.getWrapperField(this, dependency_5.Oreka.AlertSetting, 89) as dependency_5.Oreka.AlertSetting;
+        }
+        set alertsetting(value: dependency_5.Oreka.AlertSetting) {
+            pb_1.Message.setOneofWrapperField(this, 89, this.#one_of_decls[4], value);
+        }
+        get has_alertsetting() {
+            return pb_1.Message.getField(this, 89) != null;
+        }
         get _loginrequest() {
             const cases: {
                 [index: number]: "none" | "loginrequest";
@@ -120,12 +135,22 @@ export namespace Oreka {
             };
             return cases[pb_1.Message.computeOneofCase(this, [5])];
         }
+        get _alertsetting() {
+            const cases: {
+                [index: number]: "none" | "alertsetting";
+            } = {
+                0: "none",
+                89: "alertsetting"
+            };
+            return cases[pb_1.Message.computeOneofCase(this, [89])];
+        }
         static fromObject(data: {
             type?: string;
             loginrequest?: ReturnType<typeof dependency_1.Oreka.LoginRequest.prototype.toObject>;
             loginresponse?: ReturnType<typeof dependency_2.Oreka.LoginResponse.prototype.toObject>;
             subscribeticker?: ReturnType<typeof dependency_3.Oreka.SubscribeTicker.prototype.toObject>;
             tickdata?: ReturnType<typeof dependency_4.Oreka.TickData.prototype.toObject>;
+            alertsetting?: ReturnType<typeof dependency_5.Oreka.AlertSetting.prototype.toObject>;
         }): ClientMessage {
             const message = new ClientMessage({});
             if (data.type != null) {
@@ -143,6 +168,9 @@ export namespace Oreka {
             if (data.tickdata != null) {
                 message.tickdata = dependency_4.Oreka.TickData.fromObject(data.tickdata);
             }
+            if (data.alertsetting != null) {
+                message.alertsetting = dependency_5.Oreka.AlertSetting.fromObject(data.alertsetting);
+            }
             return message;
         }
         toObject() {
@@ -152,6 +180,7 @@ export namespace Oreka {
                 loginresponse?: ReturnType<typeof dependency_2.Oreka.LoginResponse.prototype.toObject>;
                 subscribeticker?: ReturnType<typeof dependency_3.Oreka.SubscribeTicker.prototype.toObject>;
                 tickdata?: ReturnType<typeof dependency_4.Oreka.TickData.prototype.toObject>;
+                alertsetting?: ReturnType<typeof dependency_5.Oreka.AlertSetting.prototype.toObject>;
             } = {};
             if (this.type != null) {
                 data.type = this.type;
@@ -167,6 +196,9 @@ export namespace Oreka {
             }
             if (this.tickdata != null) {
                 data.tickdata = this.tickdata.toObject();
+            }
+            if (this.alertsetting != null) {
+                data.alertsetting = this.alertsetting.toObject();
             }
             return data;
         }
@@ -184,6 +216,8 @@ export namespace Oreka {
                 writer.writeMessage(4, this.subscribeticker, () => this.subscribeticker.serialize(writer));
             if (this.has_tickdata)
                 writer.writeMessage(5, this.tickdata, () => this.tickdata.serialize(writer));
+            if (this.has_alertsetting)
+                writer.writeMessage(89, this.alertsetting, () => this.alertsetting.serialize(writer));
             if (!w)
                 return writer.getResultBuffer();
         }
@@ -207,6 +241,9 @@ export namespace Oreka {
                         break;
                     case 5:
                         reader.readMessage(message.tickdata, () => message.tickdata = dependency_4.Oreka.TickData.deserialize(reader));
+                        break;
+                    case 89:
+                        reader.readMessage(message.alertsetting, () => message.alertsetting = dependency_5.Oreka.AlertSetting.deserialize(reader));
                         break;
                     default: reader.skipField();
                 }

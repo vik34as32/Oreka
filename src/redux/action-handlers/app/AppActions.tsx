@@ -12,6 +12,7 @@ import { TdhData } from "../../../ui/components/popups/tdh/TdhModal";
 import { themes } from "../../../data/colorTemplate";
 import { Theme } from "../../../ui/components/widgets/ThemeModal/ThemeTemplateModal";
 import { Oreka as ClientMessage } from "../../../proto/clientmessage";
+import { Oreka as AlertSetting } from "../../../proto/AlertSetting";
 // import { Oreka as FetchClientPositions } from "../../../proto/FetchClientPositions";
 // import { Oreka as FetchColorTemplates } from "../../../proto/FetchColorTemplates";
 // import { Oreka as SaveColorTemplate } from "../../../proto/SaveColorTemplate";
@@ -53,6 +54,48 @@ export interface LoginPanelSubscriber {
   unsubscribeEvent: string;
   isLive: boolean;
   uniqueKeys?: string[];
+}
+
+
+
+// Define TypeScript interfaces to match the Protobuf messages
+interface OrConditionData {
+  orConditionType: string;
+  orCompareCondition: string;
+  orConditionValue: string;
+}
+
+interface Condition {
+  conditionType: string;
+  compareCondition: string;
+  conditionValue: string;
+  orCondition: OrConditionData[];
+}
+
+interface Action {
+  action: string;
+  action_name: string;
+  action_send_by: string;
+  action_send_to: string;
+  action_trigger: string;
+}
+
+interface EventManagementSystemData {
+  alertName: string;
+  triggerType: string;
+  startTime: string;
+  expiryTime: string;
+  noExpiry: boolean;
+  daysOfWeek: number[];
+  selectedMonths: number[];
+  daysOfMonth: number[];
+  repetitions: number;
+  days: number;
+  hours: number;
+  minutes: number;
+  activeStepIndex: number;
+  conditions: Condition[];
+  actions: Action[];
 }
 
 const subscriberLookUp = new Map<string, DataSourceSubscriber>();
@@ -195,6 +238,57 @@ export function subscribe(subscriber: DataSourceSubscriber, loginUser: string) {
 
 
 
+
+// Convert data to the expected Protobuf format and call AlertSetting.fromObject
+export function AlerttSystem(alertdata: EventManagementSystemData): void {
+  console.log("alertdata", alertdata);
+  debugger
+
+
+  // Convert the data to match the Protobuf structure
+  const request = AlertSetting.AlertSetting.fromObject({
+    type: "SAVE_UPDATE_ALERT",
+    alert_name: alertdata.alertName,
+    trigger_type: alertdata.triggerType,
+    start_time: alertdata.startTime,
+    expiry_time: alertdata.expiryTime,
+    days_of_week: alertdata.daysOfWeek.map(String),
+    selected_months: alertdata.selectedMonths.map(String),
+    days_of_month: alertdata.daysOfMonth.map(String),
+    repetitions: alertdata.repetitions,
+    days: alertdata.days,
+    hours: alertdata.hours,
+    minutes: alertdata.minutes,
+    conditions: alertdata.conditions.map(condition => ({
+        conditionType: condition.conditionType,
+        compareCondition: condition.compareCondition,
+        conditionValue: condition.conditionValue,
+        or_condition: condition.orCondition.length > 0 ? condition.orCondition.map(orCond => ({
+            orConditionType: orCond.orConditionType,
+            orCompareCondition: orCond.orCompareCondition,
+            orConditionValue: orCond.orConditionValue
+        })) : []
+    })),
+    actions: alertdata.actions.map(action => ({
+        action: action.action,
+        action_name: action.action_name,
+        action_send_by: action.action_send_by,
+        action_send_to: action.action_send_to,
+        action_trigger: action.action_trigger
+    }))
+});
+
+
+  // Log the request object to verify its structure
+  console.log("Request object:", request);
+  const clientMessage= new ClientMessage.ClientMessage();
+  clientMessage.alertsetting = request;
+  const buf = clientMessage.serializeBinary();
+  sendMessage(buf);  
+}
+
+
+
 // FETCH_DEALING_DATA_INTERVAL
 export function subscribeDealingPanel(
   subscriber: DataSourceSubscriber,
@@ -238,13 +332,13 @@ export function LoginDevicePanel(
   const buf = clientMessage.serializeBinary();
   const  converter = ClientMessage.ClientMessage.deserialize(buf);
   console.log(converter,"buffer conter")
-  debugger
   sendMessage(buf);
 }
 
 
 export function  subscribeToTicker(subscriptionId: string, tickers: string[]) {
    console.log(tickers,"tickerstickers")
+
   // // return if not registered
   // if (!this.subscriptionCallBack.has(subscriptionId)) return;
 
@@ -266,6 +360,9 @@ export function  subscribeToTicker(subscriptionId: string, tickers: string[]) {
   const clientMessage= new ClientMessage.ClientMessage();
   clientMessage.subscribeticker = request;
   const buf = clientMessage.serializeBinary();
+  const  converter = ClientMessage.ClientMessage.deserialize(buf);
+  console.log(converter,"buffer conter")
+  debugger
   sendMessage(buf);
 }
 
