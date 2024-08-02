@@ -224,7 +224,7 @@ class LoginPage extends Component<LoginPropType, LoginState> {
       open: false,
       userName: "",
       password: "",
-      connectUrl: "wss://auttrading.com:9986" // Initialize connectUrl
+      connectUrl: "wss://auttrading.com:9987" // Initialize connectUrl
     };
   }
 
@@ -337,7 +337,7 @@ handleSubmit = (): void => {
 
     case "SAVE_UPDATE_ALERT":
       console.log(data, "mk");
-      if (data.type !== undefined) {
+      if (data.type !== undefined) { 
         AlerttSystem(data)
       } 
       break;
@@ -365,8 +365,8 @@ handleSubmit = (): void => {
       <input
         type="text"
         name="url"
-        value={"wss://auttrading.com:9986"}
-        onChange={(e)=>this.setState({connectUrl:"wss://auttrading.com:9986"})}
+        value={"wss://auttrading.com:9987"}
+        onChange={(e)=>this.setState({connectUrl:"wss://auttrading.com:9987"})}
       />
       <button onClick={this.webscoketConneter}>Connect</button>
       <br />
